@@ -1,0 +1,35 @@
+stages:
+    - debug
+    - release
+    - deliver
+    - trigger
+
+debug:
+    stage: debug
+    script:
+        - ./build debug
+    except:
+         - master
+
+release:
+    stage: release
+    script:
+        - ./build release
+    except:
+        - master
+
+delivery:
+    stage: deliver
+    script:
+        - ./build debug
+        - ./build release 
+        - echo 'copy headers, libraries and binaries to staging path'
+    only:
+        - master
+
+downstream-project:
+    stage: trigger
+    script:
+        - echo "curl -X POST -F token=<downstream-project-token> -F ref=master <url>/api/v4/projects/<downstream-project-id>/trigger/pipeline"
+    only:
+        - master
