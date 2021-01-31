@@ -8,5 +8,6 @@ add_bin("${CMAKE_PROJECT_NAME}" "source/bin"
     lib${CMAKE_PROJECT_NAME}
 )
 
-add_unittest(lib${CMAKE_PROJECT_NAME})
+add_unittest(lib${CMAKE_PROJECT_NAME} ${LIB_COM})
+
 add_benchmark(lib${CMAKE_PROJECT_NAME})
