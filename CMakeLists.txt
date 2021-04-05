@@ -3,7 +3,7 @@ project("${CMAKE_PROJECT_NAME}")
 include("$ENV{TOOLCHAIN_PATH}/CMakeLists.txt.in")
 
 add_lib("libimpl" "source/lib")
-add_bin("testmkt" "source/bin" libimpl
+add_svc("testmkt" "source/bin" libimpl
     ${LIB_MKT_SVC} ${LIB_MKT} ${LIB_REF} ${LIB_MIU}
 )
 add_unittest(libimpl
