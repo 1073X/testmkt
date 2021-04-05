@@ -1,0 +1,26 @@
+{
+    "com": {
+        "meta": {
+            "category": "mkt",
+            "type": "testmkt",
+            "name": "testmkt_dbg"
+        },
+        "log": {
+            "type": "file",
+            "path": ".",
+            "severity": "DEBUG",
+            "capacity": 4096
+        },
+        "core": 0,
+        "time_offset": 28800000,
+        "interval": 500
+    },
+    "spec": {
+        "adapters": [
+            {
+                "name": "testmkt_dbg_1",
+                "database": "sample_ref"
+            }
+        ]
+    }
+}
